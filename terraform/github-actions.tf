@@ -10,6 +10,6 @@ resource "github_repository_environment" "test_env" {
 resource "github_actions_environment_secret" "ec2-ssh-key" {
   environment = github_repository_environment.test_env.environment
   secret_name = "aws_ec2_ssh_key"
-  plaintext_value = file("my-keypair.pub")
+  plaintext_value = file("my-keypair")
   repository = data.github_repository.repo.name
 }
