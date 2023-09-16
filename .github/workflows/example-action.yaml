@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Go app directory
         env:
-          EC2_SSH:  ${{ secrets.aws_ec2_ssh_key}} 
+          EC2_SSH:  ${{ secrets.AWS_EC2_SSH_KEY}} 
         run: |
             cd my-blog
             ls
