@@ -9,9 +9,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Go app directory
+        run:  cd my-blog
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
         env:
-          EC2_SSH:  ${{ secrets.AWS_EC2_SSH_KEY}} 
-        run: |
-            cd my-blog
-            ls
-            echo "Using AWS EC2 Secret ${{ secrets.AWS_EC2_SSH_KEY }}"
+            SSH_PRIVATE_KEY: ${{ secrets.AWS_EC2_SSH_KEY }}
+            REMOTE_HOST: 3.72.87.209
+            REMOTE_USER: ec2-user
+            TARGET: app

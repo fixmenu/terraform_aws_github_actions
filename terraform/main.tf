@@ -96,6 +96,15 @@ resource "aws_security_group" "my-ec2-sg" {
     protocol        = "tcp"
     security_groups = [aws_security_group.my-sg.id]
   }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -169,8 +178,4 @@ resource "aws_lb_listener" "my-lb-listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.my_tg.arn
   }
-
-
-
-  
 }
