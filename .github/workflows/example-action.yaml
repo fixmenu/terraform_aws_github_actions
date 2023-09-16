@@ -13,4 +13,4 @@ jobs:
         run: |
             cd my-blog
             ls
-            echo $EC2_SSH
+            echo "Using AWS EC2 Secret ${{ secrets.AWS_EC2_SSH_KEY }}"
