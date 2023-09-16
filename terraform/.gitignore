@@ -1,5 +1,4 @@
-my-keypair
-my-keypair.pub
+my-keypair*
 terraform.tfstate*
 .terraform
 secret.tfvars
