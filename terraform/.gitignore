@@ -1,0 +1,6 @@
+my-keypair
+my-keypair.sub
+terraform.tfstate
+terraform.tfstate.backup
+.terraform
+.secret.tfvars
