@@ -1,6 +1,5 @@
 my-keypair
-my-keypair.sub
+my-keypair.pub
 terraform.tfstate*
-terraform.tfstate.backup
 .terraform
-.secret.tfvars
+secret.tfvars
