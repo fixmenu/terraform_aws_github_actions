@@ -4,6 +4,7 @@
 yum update -y
 yum install docker -y
 sudo usermod -a -G docker ec2-user
+sudo service docker start
 #yum install -y httpd
 #systemctl start httpd
 #systemctl enable httpd
