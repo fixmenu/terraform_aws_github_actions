@@ -24,7 +24,7 @@ jobs:
       - name: Upload Docker Image to EC2
         env:
           SSH_KEY: ${{ secrets.AWS_EC2_SSH_KEY }}
-          HOST: "3.77.57.17"
+          HOST: "18.197.254.41"
           USER: "ec2-user"
         run: |
           echo "$SSH_KEY" > deploy_key
@@ -34,7 +34,7 @@ jobs:
       - name: Deploy and Run on EC2
         env:
             SSH_KEY: ${{ secrets.AWS_EC2_SSH_KEY }}
-            HOST: "3.77.57.17"
+            HOST: "18.197.254.41"
             USER: "ec2-user"
         run: |
           ssh -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER@$HOST "
