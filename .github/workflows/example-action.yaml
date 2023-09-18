@@ -38,8 +38,8 @@ jobs:
             USER: "ec2-user"
         run: |
           ssh -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER@$HOST "
-          docker stop $(docker ps -a -q)
-          docker rm $(docker ps -a -q)
+          docker stop myapp_container
+          docker rm myapp_container
           docker load < myapp.tar.gz
-          docker run -d -p 80:3000 myapp
+          docker run -d --name=myapp_container -p 80:3000 myapp
           "
