@@ -1,5 +1,10 @@
 name: "test"
-on: push
+on:
+    push:
+      branches:
+        - main
+      paths:
+        - 'my_blog/**'
 jobs:
   deploy:
     name: Deploy to EC2

@@ -124,7 +124,7 @@ resource "aws_key_pair" "my-keypair" {
 
 
 resource "aws_instance" "terraform-test-server" {
-  instance_type = "t2.micro"
+  instance_type = var.ec2_instance_type
   ami           = data.aws_ami.server_ami.id
 
   tags = {
