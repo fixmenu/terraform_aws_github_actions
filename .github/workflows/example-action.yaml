@@ -12,6 +12,8 @@ jobs:
         run:  cd my-blog
       - name: Install dependencies
         run: npm install
+        working-directory: my-blog
+        
       - name: Build Docker Image
         run: docker build -t myapp .
       - name: Install SSH Client
