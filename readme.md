@@ -21,7 +21,7 @@ ssh-keygen -t rsa -f my-keypair
 Keep your keys safe, as you'll need them for accessing resources.
 
 ### 5. Set Up Terraform Secrets
-Create a file in the root directory named `secrets.tfvars`.
+Create a file in the `terraform` directory named `secrets.tfvars`.
 
 ### 6. Generate GitHub Token
 1. Create a new personal access token on GitHub. [Follow this guide if you're unsure how to create one.](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
@@ -39,6 +39,9 @@ Open the `variables.tf` file to configure any Terraform variables as per your re
 
 ### 9. Run Terraform Commands
 Initialize and apply your Terraform configuration:
+```bash
+terraform init
+```
 ```bash
 terraform plan -var-file="secrets.tfvars"
 ```
