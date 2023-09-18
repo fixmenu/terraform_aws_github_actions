@@ -5,6 +5,9 @@ jobs:
     name: Deploy to EC2
     runs-on: ubuntu-latest
     environment: test_env
+    defaults:
+        run:
+          working-directory: my-blog
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -13,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: my-blog
-        
+
       - name: Build Docker Image
         run: docker build -t myapp .
       - name: Install SSH Client
