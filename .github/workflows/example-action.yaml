@@ -1,6 +1,7 @@
 name: "test"
 on: push
 jobs:
+  environment: test_env
   deploy:
     name: Deploy to EC2
     runs-on: ubuntu-latest
@@ -10,10 +11,25 @@ jobs:
         uses: actions/checkout@v4
       - name: Go app directory
         run:  cd my-blog
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
+      - name: Install dependencies
+        run: npm install
+      - name: Build Docker Image
+        run: docker build -t myapp .
+      - name: Install SSH Client
+        run: sudo apt-get install -y openssh-client
+      - name: Upload Docker Image to EC2
         env:
-            SSH_PRIVATE_KEY: ${{ secrets.AWS_EC2_SSH_KEY }}
-            REMOTE_HOST: 3.72.87.209
-            REMOTE_USER: ec2-user
-            TARGET: app
+          SSH_KEY: ${{ secrets.AWS_EC2_SSH_KEY }}
+          HOST: "3.77.57.17"
+          USER: "ec2-user"
+        run: |
+          echo "$SSH_KEY" > deploy_key
+          chmod 600 deploy_key
+          scp -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null myapp.tar.gz $USER@$HOST:~
+  
+      - name: Deploy and Run on EC2
+        run: |
+          ssh -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER@$HOST "
+            docker load < myapp.tar.gz
+            docker run -d myapp
+          "
