@@ -32,6 +32,10 @@ jobs:
           scp -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null myapp.tar.gz $USER@$HOST:~
   
       - name: Deploy and Run on EC2
+        env:
+            SSH_KEY: ${{ secrets.AWS_EC2_SSH_KEY }}
+            HOST: "3.77.57.17"
+            USER: "ec2-user"
         run: |
           ssh -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER@$HOST "
             docker load < myapp.tar.gz
