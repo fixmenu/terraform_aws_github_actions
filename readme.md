@@ -1,4 +1,6 @@
-## Getting Started with [Your Repository Name]
+## Purpose of this Repository
+This repository showcases how to leverage Terraform for provisioning servers on AWS. In tandem, it uses GitHub Actions and Docker to optimize and automate deployments of applications to the cloud.
+## Getting Started with
 
 ### 1. Fork the Repository
 Start by forking this repository to your own GitHub account.
