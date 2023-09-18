@@ -28,7 +28,7 @@ body {
 }
 
 .codeslag-text {
-  font-size: 7em;
+  font-size: 15vw;
   font-weight: bold;
   background: -webkit-linear-gradient(
     left,
@@ -46,6 +46,24 @@ body {
   text-fill-color: transparent;
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
+}
+
+.colorful-divider {
+  background: -webkit-linear-gradient(
+    left,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate; 
+  height: 3vw;
 }
 @keyframes textShine {
   0% {
