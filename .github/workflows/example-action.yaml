@@ -39,5 +39,7 @@ jobs:
         run: |
           ssh -i deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $USER@$HOST "
             docker load < myapp.tar.gz
+            docker stop $(docker ps -a -q)
+            docker rm $(docker ps -a -q)
             docker run -d myapp
           "
