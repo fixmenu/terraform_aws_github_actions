@@ -53,4 +53,4 @@ terraform apply -var-file="secrets.tfvars" -auto-approve
 ```
 
 ### 10. Automated Deployments
-Ensure that your EC2 instance is up and running. From this point forward, any updates made to the my-blog directory on main branch will automatically be packaged and deployed in a Docker container and run on aws EC2 instance. You're encouraged to tailor the github-actions workflow to better suit your specific requirements.
+Ensure that your EC2 instance is up and running. From this point forward, any updates made to the app directory on main branch will automatically be packaged and deployed in a Docker container and run on aws EC2 instance. You're encouraged to tailor the github-actions workflow to better suit your specific requirements.
